@@ -82,6 +82,19 @@ nodePackages // {
     '';
   };
 
+  git-ssb = nodePackages.git-ssb.override (drv: {
+    buildInputs = drv.buildInputs or [] ++ [ nodePackages.node-gyp-build ];
+  });
+  scuttlebot = nodePackages.scuttlebot.override (drv: {
+    buildInputs = drv.buildInputs or [] ++ [ nodePackages.node-gyp-build ];
+  });
+
+  scuttle-shell = nodePackages.scuttle-shell.override (drv: {
+    buildInputs = drv.buildInputs or [] ++ [ nodePackages.node-gyp-build pkgs.systrayhelper ];
+  });
+
+
+
   statsd = nodePackages.statsd.override {
     # broken with node v8, dead upstream,
     # see #45946 and https://github.com/etsy/statsd/issues/646

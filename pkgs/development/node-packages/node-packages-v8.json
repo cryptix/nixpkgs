@@ -99,6 +99,7 @@
 , "react-native-cli"
 , "s3http"
 , "scuttlebot"
+, "scuttle-shell"
 , "semver"
 , "serve"
 , "shout"
