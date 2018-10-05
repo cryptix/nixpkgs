@@ -1,5 +1,5 @@
 { mkDerivation, lib, fetchFromGitHub
-, openssl, boost, cmake, qt5 }:
+, openssl, boost, cmake, qtbase, qtdeclarative }:
 
 mkDerivation rec {
   src = fetchFromGitHub {
@@ -12,7 +12,7 @@ mkDerivation rec {
   name = "beam-mw-git";
 
   nativeBuildInputs = [ cmake ];
-  buildInputs = [ openssl boost qt5.full ];
+  buildInputs = [ openssl boost qtbase qtdeclarative ];
 
   cmakeFlags = [
 	"-DCMAKE_BUILD_TYPE=Release"
