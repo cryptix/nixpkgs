@@ -11,14 +11,22 @@ mkDerivation rec {
 
   name = "beam-mw-git";
 
-  nativeBuildInputs = [ cmake ];
+  nativeBuildInputs = [ cmake qtdeclarative ];
   buildInputs = [ openssl boost qtbase qtdeclarative ];
+
 
   cmakeFlags = [
 	"-DCMAKE_BUILD_TYPE=Release"
   ];
 
   configureFlags = [ "--with-boost-libdir=${boost.out}/lib" ];
+
+  doCheck = true;
+  enableParallelBuilding = true;
+  buildFlags = [ "-j 4" ];
+  preBuild = ''
+    grep -R '&& /bin/qmlcachegen'  | cut -d':' -f1 | sort -u | xargs sed -i 's#/bin/qmlcachegen#qmlcachegen#'
+  '';
 
   meta = {
     description = "BEAM Mimblewimble";
