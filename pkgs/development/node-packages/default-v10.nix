@@ -22,4 +22,7 @@ nodePackages // {
     '';
   };
 
+  scuttlebot = nodePackages.scuttlebot.override (drv: {
+    buildInputs = drv.buildInputs or [] ++ [ nodePackages.node-gyp-build ];
+  });
 }
