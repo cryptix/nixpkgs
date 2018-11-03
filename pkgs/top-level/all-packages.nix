@@ -4644,6 +4644,8 @@ with pkgs;
 
   patchwork-classic = callPackage ../applications/networking/ssb/patchwork-classic { };
 
+  gosbot = callPackage ../applications/networking/ssb/go-sbot { };
+
   pcapfix = callPackage ../tools/networking/pcapfix { };
 
   pbzip2 = callPackage ../tools/compression/pbzip2 { };
