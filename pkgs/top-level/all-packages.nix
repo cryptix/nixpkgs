@@ -4076,6 +4076,8 @@ in
 
   krakenx = callPackage ../tools/system/krakenx { };
 
+  kramdown = callPackage ../tools/text/kramdown { };
+
   partition-manager = libsForQt5.callPackage ../tools/misc/partition-manager { };
 
   kpcli = callPackage ../tools/security/kpcli { };
