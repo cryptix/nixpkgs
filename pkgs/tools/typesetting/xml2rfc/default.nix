@@ -4,7 +4,7 @@ with python.pkgs;
 
 buildPythonPackage rec {
   pname = "xml2rfc";
-  version = "2.9.8";
+  version = "2.12.3";
 
   buildInputs = [ intervaltree lxml requests pyflakes ];
   propagatedBuildInputs = [ intervaltree lxml requests six ];
