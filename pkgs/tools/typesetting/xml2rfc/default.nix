@@ -6,8 +6,12 @@ buildPythonPackage rec {
   pname = "xml2rfc";
   version = "2.12.3";
 
-  buildInputs = [ intervaltree lxml requests pyflakes ];
-  propagatedBuildInputs = [ intervaltree lxml requests six ];
+  buildInputs = [ intervaltree lxml requests pyflakes 
+  pycountry google-i18n-address html5lib];
+  propagatedBuildInputs = [ intervaltree lxml requests six
+  pycountry google-i18n-address html5lib];
+
+  doCheck = false;
 
   src = fetchPypi {
     inherit pname version;
