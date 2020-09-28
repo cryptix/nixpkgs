@@ -1,0 +1,40 @@
+diff --git a/funkwhale_cli/utils.py b/funkwhale_cli/utils.py
+index 9e075a7..216b66e 100644
+--- a/funkwhale_cli/utils.py
++++ b/funkwhale_cli/utils.py
+@@ -2,8 +2,6 @@ import collections
+ import json
+ import urllib.parse
+ 
+-import pathvalidate
+-
+ 
+ def recursive_getattr(obj, key, permissive=False):
+     """
+@@ -83,7 +81,7 @@ def sanitize_recursive(value):
+     else:
+         if value and str(value).startswith("/"):
+             value = str(value)[1:]
+-        return pathvalidate.sanitize_filepath(str(value))
++        return str(value)
+ 
+ 
+ def flatten(d, parent_key="", sep="_"):
+diff --git a/setup.cfg b/setup.cfg
+index 63c567f..840e37e 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -25,12 +25,11 @@ install_requires =
+     click
+     click-log
+     keyring
+-    marshmallow==2.19.2
++    marshmallow
+     python-dotenv
+     semver
+     tabulate
+     tqdm
+-    pathvalidate
+ 
+ [options.entry_points]
+ console_scripts =

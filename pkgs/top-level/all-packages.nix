@@ -9101,6 +9101,8 @@ in
     ocamlPackages = ocaml-ng.ocamlPackages_4_07;
   };
 
+  funkwhale-cli = callPackage ../applications/audio/funkwhale-cli { };
+
   dotnetPackages = recurseIntoAttrs (callPackage ./dotnet-packages.nix {});
 
   glslang = callPackage ../development/compilers/glslang {
