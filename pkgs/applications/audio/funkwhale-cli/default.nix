@@ -27,7 +27,8 @@ python3Packages.buildPythonApplication rec {
   ];
 
   patches = [
-    ./001-use-recent-marshmallow.patch
+    ./patches/0001-nixos-install-hackzz.patch
+    ./patches/0002-Revert-Support-for-Bearer-application-token.patch
   ];
 
   doCheck = false;

@@ -1,3 +1,15 @@
+From ca06886531882595023f334fe1878ec9a5d8ebff Mon Sep 17 00:00:00 2001
+From: Henry <cryptix@riseup.net>
+Date: Mon, 28 Sep 2020 13:01:49 +0200
+Subject: [PATCH 1/2] nixos install hackzz
+
+* marshallow is only avail with v3
+* patchvalidate isnt there yet
+---
+ funkwhale_cli/utils.py | 4 +---
+ setup.cfg              | 3 +--
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+
 diff --git a/funkwhale_cli/utils.py b/funkwhale_cli/utils.py
 index 9e075a7..216b66e 100644
 --- a/funkwhale_cli/utils.py
@@ -38,3 +50,6 @@ index 63c567f..840e37e 100644
  
  [options.entry_points]
  console_scripts =
+-- 
+2.28.0
+

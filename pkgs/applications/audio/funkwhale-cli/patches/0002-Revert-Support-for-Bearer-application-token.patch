@@ -1,0 +1,27 @@
+From 4eac509e0f92885cdac8cfe4489cfb8c992f788f Mon Sep 17 00:00:00 2001
+From: Henry <cryptix@riseup.net>
+Date: Mon, 28 Sep 2020 13:08:10 +0200
+Subject: [PATCH 2/2] Revert "Support for Bearer application token"
+
+This reverts commit 8a2637439f970e2eda0acb1f75a7e0f8248c2983.
+---
+ funkwhale_cli/api.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/funkwhale_cli/api.py b/funkwhale_cli/api.py
+index b4ae91a..082b22f 100644
+--- a/funkwhale_cli/api.py
++++ b/funkwhale_cli/api.py
+@@ -78,8 +78,7 @@ class API(object):
+             full_url = self.base_url + path
+         headers = kwargs.setdefault("headers", {})
+         if self.token:
+-            scheme = "JWT" if len(self.token) > 50 else "Bearer"
+-            headers["Authorization"] = " ".join([scheme, self.token])
++            headers["Authorization"] = "JWT {}".format(self.token)
+         handler = getattr(self._session, method)
+         return handler(full_url, *args, **kwargs)
+ 
+-- 
+2.28.0
+
