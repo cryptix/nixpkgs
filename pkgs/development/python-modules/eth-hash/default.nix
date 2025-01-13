@@ -10,7 +10,6 @@
   pytest-xdist,
   safe-pysha3,
   setuptools,
-  passthru,
 }:
 
 buildPythonPackage rec {
@@ -49,7 +48,7 @@ buildPythonPackage rec {
       pytest tests/backends/pysha3
     '';
 
-  optional-dependencies = {
+  passthru.optional-dependencies = {
     pycryptodome = [ pycryptodome ];
     pysha3 = [ safe-pysha3 ];
   };
