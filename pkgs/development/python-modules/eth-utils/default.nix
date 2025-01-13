@@ -2,7 +2,6 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-  fetchpatch2,
   isPyPy,
   pythonOlder,
   cytoolz,
@@ -18,7 +17,7 @@
 
 buildPythonPackage rec {
   pname = "eth-utils";
-  version = "4.0.0";
+  version = "4.1.1";
   pyproject = true;
 
   disabled = pythonOlder "3.8";
@@ -27,17 +26,8 @@ buildPythonPackage rec {
     owner = "ethereum";
     repo = "eth-utils";
     tag = "v${version}";
-    hash = "sha256-uPzg1gUEsulQL2u22R/REHWx1ZtbMxvcXf6UgWqkDF4=";
+    hash = "sha256-SfJO3KNdVHPNXe85ZiBVKqXjnpUqI9QLQnj1SwpGSeM=";
   };
-
-  patches = [
-    (fetchpatch2 {
-      # Merged but unreleased: https://github.com/ethereum/eth-utils/pull/284
-      name = "fix-cyclic-dependency.patch";
-      url = "https://github.com/ethereum/eth-utils/commit/c27072b6caf758f02d2eda8b1ee004d772e491dd.patch";
-      hash = "sha256-7gKxRXDZmiWxQxA+OPCB32wS1hoA0ChjGOlRRD281I4=";
-    })
-  ];
 
   build-system = [ setuptools ];
 
