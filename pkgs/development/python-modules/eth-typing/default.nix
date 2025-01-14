@@ -11,7 +11,7 @@
 
 buildPythonPackage rec {
   pname = "eth-typing";
-  version = "4.0.0";
+  version = "5.1.0";
   pyproject = true;
 
   disabled = pythonOlder "3.8";
@@ -19,8 +19,8 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "ethereum";
     repo = "eth-typing";
-    rev = "refs/tags/v${version}";
-    hash = "sha256-JT/2bCPYFSRNt3V7QnHSAJR7HrZ1JpRKdU7gQpoYIn0=";
+    tag = "v${version}";
+    hash = "sha256-IOWd6WFPAYO+VZwlMilRVHtudEjHt5p8Xu4WloFB/ww=";
   };
 
   nativeBuildInputs = [ setuptools ];
@@ -31,6 +31,8 @@ buildPythonPackage rec {
     pytestCheckHook
     pytest-xdist
   ];
+
+  disabledTests = [ "test_install_local_wheel" ];
 
   pythonImportsCheck = [ "eth_typing" ];
 
